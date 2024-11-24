@@ -8,18 +8,37 @@ body, html {
 }
 
 header {
-    background: linear-gradient(90deg, #0073e6, #00b0f0);
+    background: rgb(114,127,140);
     color: #fff;
     padding: 1rem 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
-header .logo h1 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
+header .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header .logo img {
+    height: 160px;
+    width: auto;
+}
+
+header .slogan {
+    flex: 1;
+    text-align: right;
+    padding-left: 1rem;
+}
+
+header .slogan p {
     margin: 0;
+    font-size: 2.2rem;
+    font-weight: bold;
     animation: fadeInDown 1s ease-in-out;
 }
 
@@ -46,7 +65,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #00ffd5;
+    color: rgb(255, 208, 0);
     transform: scale(1.1);
 }
 
@@ -57,7 +76,7 @@ nav ul li::after {
     height: 2px;
     bottom: -5px;
     left: 50%;
-    background-color: #00ffd5;
+    background-color: rgb(255, 238, 0);
     transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -71,6 +90,59 @@ main {
     padding: 2rem;
 }
 
+.principal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: auto; /* Ajusta la altura automáticamente */
+}
+
+.principal img.bg {
+    width: 100%;
+    height: auto; /* Ajusta la altura según la imagen */
+    object-fit: contain; /* Asegura que la imagen no se recorte */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.contenido {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.contenido img {
+    height: 300px;
+    width: auto;
+    border-radius: 20px;
+}
+
+.contenido .texto {
+    color: #fff; /* Cambia el color según necesites */
+    font-size: 2.5rem;
+    flex: 1;
+    text-align: center;
+}
+
+/* Ejemplo de cómo se podría utilizar esta estructura */
+.presentacion-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
 .productos {
     display: flex;
     flex-wrap: wrap;
@@ -79,12 +151,18 @@ main {
 }
 
 .producto {
-    border: 1px solid #ddd;
+    border: none;
     padding: 1rem;
     flex: 1 1 calc(33.333% - 2rem);
     box-sizing: border-box;
     text-align: center;
     transition: transform 0.3s;
+}
+.producto img {
+    width: 400px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 40px;
 }
 
 .producto:hover {
@@ -111,12 +189,28 @@ footer {
 
 /* Media Queries */
 @media (max-width: 1024px) {
-    nav ul {
-        flex-wrap: wrap;
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    nav ul li {
-        margin: 0 10px;
+    .slogan {
+        padding: 0;
+    }
+
+    .contenido {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .contenido .texto {
+        color: black;
+        font-size: 30px;
+    }
+
+    .contenido img {
+        margin: 0 0 20px 0;
     }
 
     .producto {
@@ -125,12 +219,22 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header .logo h1 {
-        font-size: 1.8rem;
+    .slogan p {
+        font-size: 1.5rem;
     }
 
-    nav ul li a {
-        font-size: 1rem;
+    .contenido {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .contenido .texto {
+        color: black;
+        font-size: 30px;
+    }
+
+    .contenido img {
+        margin: 0 0 20px 0;
     }
 
     .producto {
@@ -147,17 +251,23 @@ footer {
         padding: 0.5rem 0;
     }
 
-    header .logo h1 {
-        font-size: 1.5rem;
+    .slogan p {
+        font-size: 1.2rem;
     }
 
-    nav ul {
+    .contenido {
         flex-direction: column;
         align-items: center;
+        text-align: center;
+    }
+    .contenido .texto {
+        color: black;
+        font-size: 30px;
     }
 
-    nav ul li {
-        margin: 10px 0;
+    .contenido img {
+        margin: 0 0 20px 0;
+        height: 220px; /* Ajusta el tamaño de la imagen para pantallas pequeñas */
     }
 
     .producto {
